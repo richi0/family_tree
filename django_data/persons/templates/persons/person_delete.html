@@ -6,9 +6,7 @@
 <form action='' method='post'>
   {% csrf_token %}
   <p>
-    Are you sure you want to delete "{{person.first_name}} {{
-      person.last_name
-    }}"?
+    Are you sure you want to delete "{{person.first_name}} {{ person.last_name }}"?
   </p>
   <input class='btn btn-primary my-2' type='submit' value='Delete' />
 </form>

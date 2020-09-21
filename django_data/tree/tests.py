@@ -33,7 +33,7 @@ class ChooseAncestorTests(TestCase):
 class TreeTests(TestCase):
     def setUp(self):
         self.person = create_person()
-        self.response = self.client.get(reverse("tree") + "?pk=1")
+        self.response = self.client.get(reverse("tree") + f"?pk={self.person.id}")
 
     def test_tree_status_code(self):
         self.assertEqual(self.response.status_code, 200)
@@ -57,7 +57,7 @@ class TreeDownloadPdf(TestCase):
     def setUp(self):
         self.person = create_person()
         self.response = self.client.get(
-            reverse("download_tree_pdf", args=[1]))
+            reverse("download_tree_pdf", args=[self.person.id]))
         self.no_response = self.client.get(
             reverse("download_tree_pdf", args=[2]))
 
@@ -72,7 +72,7 @@ class TreeDownloadPng(TestCase):
     def setUp(self):
         self.person = create_person()
         self.response = self.client.get(
-            reverse("download_tree_png", args=[1]))
+            reverse("download_tree_png", args=[self.person.id]))
         self.no_response = self.client.get(
             reverse("download_tree_png", args=[2]))
 
