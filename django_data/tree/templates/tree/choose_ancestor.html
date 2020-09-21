@@ -1,0 +1,14 @@
+{% extends 'persons/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h2>Choose Ancestor</h2>
+<form action="{% url 'tree' %}" method="get">
+    {{ form|crispy }}
+    <select name="pk" class="form-select">
+        {% for person in object_list %}
+        <option value="{{ person.pk }}">{{ person }}</option>
+        {% endfor %}
+    </select>
+    <input class="btn btn-primary mt-2" type="submit" value="Render Tree" />
+</form>
+{% endblock content %}

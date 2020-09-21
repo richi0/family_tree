@@ -1,0 +1,10 @@
+{% extends 'persons/base.html' %}
+{% block content %}
+<p class="text-right">
+    <a href="{% url 'download_tree_png' pk %}">Download PNG</a>
+    <a class="ml-3" href="{% url 'download_tree_pdf' pk %}">Download PDF</a>
+</p>
+<div class="container tree-container border my-3">
+    {{ svg|safe }}
+</div>
+{% endblock content %}

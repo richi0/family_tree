@@ -1,0 +1,10 @@
+{% extends 'persons/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h2>Create person</h2>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input class="btn btn-primary my-2" type="submit" value="Save" />
+</form>
+{% endblock content %}

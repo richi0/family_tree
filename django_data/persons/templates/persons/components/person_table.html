@@ -1,0 +1,38 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Hometown</th>
+            <th scope="col">Birthday</th>
+            <th scope="col">Deathday</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if persons %}
+        {% for person in persons %}
+        <tr>
+            <th>{{ person.first_name }}</th>
+            <th>{{ person.last_name }}</th>
+            <th>{{ person.hometown }}</th>
+            {% if person.date_of_birth %}
+            <th>{{ person.date_of_birth }}</th>
+            {% else %}
+            <th>-</th>
+            {% endif %}
+            {% if person.date_of_death %}
+            <th>{{ person.date_of_death }}</th>
+            {% else %}
+            <th>-</th>
+            {% endif %}
+            <th>
+                <a href="{{ person.get_detail_url }}">Detail</a>
+                <a href="{{ person.get_update_url }}">Update</a>
+                <a href="{{ person.get_delete_url }}">Delete</a>
+            </th>
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </tbody>
+</table>

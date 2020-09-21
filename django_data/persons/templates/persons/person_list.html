@@ -1,0 +1,6 @@
+{% extends 'persons/base.html' %}
+{% block content %}
+{% if object_list %}
+    {% include "persons/components/person_table.html" with persons=object_list %}
+{% endif %}
+{% endblock content %}

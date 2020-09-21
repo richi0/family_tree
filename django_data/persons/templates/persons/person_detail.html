@@ -1,0 +1,43 @@
+{% extends 'persons/base.html' %}
+{% block content %}
+<h1 class="inline-element">{{ person.first_name }} {{ person.last_name }} </h1>
+<h4 class="inline-element"><a href="{{ person.get_update_url }}">Update</a> | <a
+        href="{{ person.get_delete_url }}">Delete</a></h4>
+<h2 class="mt-5">Infos:</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Maiden name</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Birthday</th>
+            <th scope="col">Deathday</th>
+            <th scope="col">Hometown</th>
+            <th scope="col">Father</th>
+            <th scope="col">Mother</th>
+            <th scope="col">Spouse</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% include "persons/components/row.html" with data=person.maiden_name %}
+        <th>{{ person.gender }}</th>
+        {% include "persons/components/row.html" with data=person.date_of_birth %}
+        {% include "persons/components/row.html" with data=person.date_of_death %}
+        <th>{{ person.hometown }}</th>
+        {% include "persons/components/row_link.html" with data=person.father url=person.father.get_detail_url %}
+        {% include "persons/components/row_link.html" with data=person.mother url=person.mother.get_detail_url %}
+        {% include "persons/components/row_link.html" with data=person.get_spouse url=person.get_spouse.get_detail_url %}
+    </tbody>
+</table>
+{% if person.infos %}
+<p>{{ person.infos|linebreaksbr }}</p>
+{% endif %}
+{% if person.get_children %}
+<h2 class="mt-5">Children:</h2>
+{% include "persons/components/person_table.html" with persons=person.get_children %}
+{% endif %}
+{% if person.get_siblings %}
+<h2 class="mt-5">Siblings:</h2>
+{% include "persons/components/person_table.html" with persons=person.get_siblings %}
+{% endif %}
+
+{% endblock content %}
