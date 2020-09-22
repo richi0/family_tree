@@ -7,13 +7,14 @@ from django.core.management.base import BaseCommand
 from persons.models import Person
 
 class Command(BaseCommand):
-    """
+    help = """
     Imports all persons from the export.json file. 
     Database must be empty or all ids in the export.json file must be unused.
     """
-    root = Path(__file__).parent.resolve()
-    filename = Path(root, "export.json")
     persons_objects = []
+
+    def add_arguments(self, parser):
+        parser.add_argument('--filename', type=str, help='Name of the import json file', )
 
     def convert_string_to_date(self, date):
         return datetime.strptime(date, '%Y-%m-%d').date()
@@ -34,7 +35,13 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
-        with open(self.filename, "r") as fp:
+        root = Path(__file__).parent.resolve()
+        filename = Path(root, "export.json")
+
+        if options["filename"]:
+            filename = Path(root, options["filename"])
+
+        with open(filename, "r") as fp:
             persons = json.load(fp)
 
         # creates all persons without setting the foreign key. 

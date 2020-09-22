@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1001,
+    "first_name": "Father",
+    "last_name": "Sample",
+    "maiden_name": null,
+    "gender": "Male",
+    "date_of_birth": "1900-01-01",
+    "date_of_death": "1980-01-01",
+    "mother_id": null,
+    "father_id": null,
+    "hometown": "London",
+    "infos": ""
+  },
+  {
+    "id": 1002,
+    "first_name": "Mother",
+    "last_name": "Sample",
+    "maiden_name": null,
+    "gender": "Female",
+    "date_of_birth": "1905-02-01",
+    "date_of_death": "1985-02-21",
+    "mother_id": null,
+    "father_id": null,
+    "hometown": "London",
+    "infos": ""
+  },
+  {
+    "id": 1003,
+    "first_name": "You",
+    "last_name": "Sample",
+    "maiden_name": null,
+    "gender": "Male",
+    "date_of_birth": "1935-03-01",
+    "date_of_death": null,
+    "mother_id": 1002,
+    "father_id": 1001,
+    "hometown": "London",
+    "infos": ""
+  },
+  {
+    "id": 1004,
+    "first_name": "Your Brother",
+    "last_name": "Sample",
+    "maiden_name": null,
+    "gender": "Male",
+    "date_of_birth": "1938-05-01",
+    "date_of_death": null,
+    "mother_id": 1002,
+    "father_id": 1001,
+    "hometown": "London",
+    "infos": ""
+  },
+  {
+    "id": 1005,
+    "first_name": "Your Sister",
+    "last_name": "Sample",
+    "maiden_name": null,
+    "gender": "Female",
+    "date_of_birth": "1940-04-01",
+    "date_of_death": null,
+    "mother_id": 1002,
+    "father_id": 1001,
+    "hometown": "London",
+    "infos": ""
+  },
+  {
+    "id": 1006,
+    "first_name": "Your Spouse",
+    "last_name": "Sample",
+    "maiden_name": "Example",
+    "gender": "Female",
+    "date_of_birth": "1940-06-02",
+    "date_of_death": null,
+    "mother_id": null,
+    "father_id": null,
+    "hometown": "New York",
+    "infos": ""
+  },
+  {
+    "id": 1007,
+    "first_name": "Your Child",
+    "last_name": "Sample",
+    "maiden_name": null,
+    "gender": "Female",
+    "date_of_birth": "1960-09-02",
+    "date_of_death": null,
+    "mother_id": 1006,
+    "father_id": 1003,
+    "hometown": "London",
+    "infos": ""
+  }
+]
