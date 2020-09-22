@@ -115,3 +115,4 @@ media/
 
 **/staticfiles
 **/mediafiles
+**/export.json
