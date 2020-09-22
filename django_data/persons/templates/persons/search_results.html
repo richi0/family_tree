@@ -1,0 +1,5 @@
+{% extends 'persons/base.html' %}
+{% block title %}Search{% endblock title %}
+{% block content %}
+    {% include "persons/components/person_table.html" with persons=object_list %}
+{% endblock content %}
