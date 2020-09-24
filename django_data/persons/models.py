@@ -66,9 +66,13 @@ class Person(models.Model):
 
     def get_siblings(self):
         if self.mother:
-            return self.mother.get_children()
+            siblings = self.mother.get_children()
+            siblings.remove(self)
+            return siblings
         elif self.father:
-            return self.father.get_children()
+            siblings = self.father.get_children()
+            siblings.remove(self)
+            return siblings
         else:
             return False
 
